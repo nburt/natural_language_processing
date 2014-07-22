@@ -1,0 +1,19 @@
+<%= link_to "Make another request", root_path %>
+
+<h3>Source Text</h3>
+<p><%= @response[:source_text] %></p>
+
+<h3>Entities</h3>
+<% @response[:entities].each do |entity| %>
+  <ul>
+    <li>Type: <%= entity[:type] %></li>
+    <li>Text: <%= entity[:text] %></li>
+    <li>Count: <%= entity[:count] %></li>
+    <li>Relevance: <%= entity[:relevance] %></li>
+    <li>Sentiment Type: <%= entity[:sentiment_type] %></li>
+    <li>Sentiment Score: <%= entity[:sentiment_score] %></li>
+    <% if entity[:disambiguated] %>
+      <%= render partial: "welcome/disambiguation", locals: {entity_dis: entity[:disambiguated]} %>
+    <% end %>
+  </ul>
+<% end %>

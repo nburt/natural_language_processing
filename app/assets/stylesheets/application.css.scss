@@ -13,3 +13,21 @@
  *= require_tree .
  *= require_self
  */
+
+input,
+select {
+  display: block;
+  margin-bottom: 1em;
+}
+
+label {
+  display: block;
+  margin-bottom: .5em;
+}
+
+ul {
+  border-bottom: 1px solid black;
+  li:last-child {
+    margin-bottom: 1em;
+  }
+}

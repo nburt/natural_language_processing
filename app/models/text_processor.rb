@@ -12,7 +12,7 @@ class TextProcessor
 
   def self.entity_request(file)
     alchemy_api = AlchemyAPI.new
-    alchemy_api.entities('text', file, {sentiment: 1})
+    alchemy_api.entities('text', file, {sentiment: 1, showSourceText: 1})
   end
 
 end
