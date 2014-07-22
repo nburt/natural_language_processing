@@ -18,6 +18,7 @@ end
 
 group :test do
   gem 'capybara', '~> 2.4.1'
+  gem 'webmock', '~> 1.18.0'
 end
 
 group :production do

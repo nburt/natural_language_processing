@@ -1,0 +1,1 @@
+1. Make sure to add an api_key.txt with your Alchemy Api key to the main app directory.

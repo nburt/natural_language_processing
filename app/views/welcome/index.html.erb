@@ -1,1 +1,8 @@
 <h1>Natural Language Processing</h1>
+
+<%= form_for :alchemy_api, url: :api_new_alchemy_path do |f| %>
+  <%= f.label :select_the_analysis_type %>:
+  <%= f.select :entity_analysis, [["Entity Analysis", 1]] %>
+  <%= f.file_field :file %>
+  <%= f.submit "Upload File" %>
+<% end %>
