@@ -19,7 +19,7 @@ feature 'visiting the homepage' do
     expect(page).to have_content 'Text: CA'
     expect(page).to have_content 'Type: Person'
     expect(page).to have_content 'Type: City'
-    expect(page).to have_content 'Type: State or County'
+    expect(page).to have_content 'Type: StateOrCounty'
     expect(page).to have_content 'Relevance: 0.968376'
     expect(page).to have_content 'Sentiment Type: negative'
     expect(page).to have_content 'Sentiment Score: -0.364699'

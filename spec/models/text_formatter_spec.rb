@@ -46,7 +46,8 @@ describe TextFormatter do
           :sentiment_type => "negative",
           :sentiment_score => "-0.364699",
           :count => 1,
-          :text => "Nathanael Burt"
+          :text => "Nathanael Burt",
+          :disambiguated => nil
         },
         {
           :type => "City",
@@ -66,12 +67,13 @@ describe TextFormatter do
           }
         },
         {
-          :type => "State or County",
+          :type => "StateOrCounty",
           :relevance => "0.292176",
           :sentiment_type => "neutral",
           :sentiment_score => nil,
           :count => 1,
-          :text => "CA"
+          :text => "CA",
+          :disambiguated => nil
         }
       ]
     }
