@@ -14,6 +14,7 @@ gem 'spring', group: :development
 
 group :development, :test do
   gem 'rspec-rails', '~> 3.0.2'
+  gem 'dotenv-rails', '~> 0.11.1'
 end
 
 group :test do
