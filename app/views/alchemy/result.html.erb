@@ -4,22 +4,46 @@
 <p><%= @response[:source_text] %></p>
 
 <h3>Entities</h3>
-<% @response[:entities].each do |entity| %>
-  <ul>
-    <li>Type: <%= entity[:type] %></li>
-    <li>Text: <%= entity[:text] %></li>
-    <li>Count: <%= entity[:count] %></li>
-    <li>Relevance: <%= entity[:relevance] %></li>
-    <% if entity[:sentiment_type] || entity[:sentiment_score] %>
-      <li>Sentiment Type: <%= entity[:sentiment_type] %></li>
-      <li>Sentiment Score: <%= entity[:sentiment_score] %></li>
-    <% end %>
-    <% if entity[:disambiguated] %>
-      <%= render partial: "disambiguation", locals: {entity_dis: entity[:disambiguated]} %>
-    <% end %>
-    <% if entity[:quotations] %>
-      <h4>Quotations:</h4>
-      <%= render partial: "quotation", collection: entity[:quotations] %>
-    <% end %>
-  </ul>
-<% end %>
+<table>
+  <th>Text</th>
+  <th>Type</th>
+  <th>Count</th>
+  <th>Relevance</th>
+  <th>Sentiment Type</th>
+  <th>Sentiment Score</th>
+  <th>Disambiguation Data</th>
+  <th>Quotations</th>
+  <% @response[:entities].each do |entity| %>
+
+    <tr>
+      <td><%= entity[:text] %></td>
+      <td><%= entity[:type] %></td>
+      <td><%= entity[:count] %></td>
+      <td><%= entity[:relevance] %></td>
+      <% if entity[:sentiment_type] || entity[:sentiment_score] %>
+        <td><%= entity[:sentiment_type] %></td>
+        <td><%= entity[:sentiment_score] %></td>
+      <% else %>
+        <td></td>
+        <td></td>
+      <% end %>
+      <td>
+        <% if entity[:disambiguated] %>
+          <ul>
+            <%= render partial: "disambiguation", locals: {entity_dis: entity[:disambiguated]} %>
+          </ul>
+        <% end %>
+      </td>
+      <td>
+        <% if entity[:quotations] %>
+          <ul>
+            <%= render partial: "quotation", collection: entity[:quotations] %>
+          </ul>
+        <% end %>
+      </td>
+    </tr>
+
+
+    </ul>
+  <% end %>
+</table>

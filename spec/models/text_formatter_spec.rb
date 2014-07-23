@@ -51,6 +51,7 @@ describe TextFormatter do
           :sentiment_score => "-0.364699",
           :count => 1,
           :text => "Nathanael Burt",
+          :disambiguated => nil,
           :quotations => [
             {
               "quotation" => "Nathanael Burt said: \"Hello, my name is Nathanael Burt\"",
@@ -73,7 +74,8 @@ describe TextFormatter do
             "freebase" => "http://rdf.freebase.com/ns/m.0d7k1z",
             "geonames" => "http://sws.geonames.org/5359777/",
             "yago" => "http://yago-knowledge.org/resource/Irvine,_California"
-          }
+          },
+          :quotations => nil
         },
         {
           :type => "StateOrCounty",
@@ -81,7 +83,9 @@ describe TextFormatter do
           :sentiment_type => "neutral",
           :sentiment_score => nil,
           :count => 1,
-          :text => "CA"
+          :text => "CA",
+          :disambiguated => nil,
+          :quotations => nil
         }
       ]
     }

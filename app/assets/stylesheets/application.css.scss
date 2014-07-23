@@ -37,17 +37,31 @@ input[type=checkbox] {
   display: inline-block;
 }
 
-ul {
-  border-bottom: 1px solid black;
-  li:last-child {
-    margin-bottom: 1em;
-  }
-}
-
 a {
   color: #0023E8;
 }
 
 h4 {
   margin: .5em 0;
+}
+
+td {
+  border: 1px solid black;
+  overflow: hidden;
+  padding: .25em .5em;
+}
+
+th {
+  border: 1px solid black;
+  padding: .5em 1em;
+}
+
+ul {
+  padding: 0;
+  margin: 0;
+}
+
+li {
+  padding: 0;
+  margin: 0 0 0 .75em;
 }
