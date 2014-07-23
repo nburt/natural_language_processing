@@ -15,7 +15,11 @@ describe TextFormatter do
           "relevance" => "0.968376",
           "sentiment" => {"type" => "negative", "score" => "-0.364699"},
           "count" => "1",
-          "text" => "Nathanael Burt"},
+          "text" => "Nathanael Burt",
+          "quotations" =>
+            [{"quotation" => "Nathanael Burt said: \"Hello, my name is Nathanael Burt\"",
+              "sentiment" => {"type" => "neutral"}}]
+         },
          {"type" => "City",
           "relevance" => "0.390811",
           "sentiment" => {"type" => "neutral"},
@@ -46,7 +50,13 @@ describe TextFormatter do
           :sentiment_type => "negative",
           :sentiment_score => "-0.364699",
           :count => 1,
-          :text => "Nathanael Burt"
+          :text => "Nathanael Burt",
+          :quotations => [
+            {
+              "quotation" => "Nathanael Burt said: \"Hello, my name is Nathanael Burt\"",
+              "sentiment" => {"type" => "neutral"}
+            }
+          ]
         },
         {
           :type => "City",

@@ -19,6 +19,9 @@ class TextFormatter
       if entity["disambiguated"]
         entity_hash[:disambiguated] = entity["disambiguated"]
       end
+      if entity["quotations"]
+        entity_hash[:quotations] = entity["quotations"]
+      end
       array << entity_hash
     end
     hash[:entities] = array
