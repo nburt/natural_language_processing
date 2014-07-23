@@ -25,9 +25,25 @@ label {
   margin-bottom: .5em;
 }
 
+.checkbox_label {
+  display: inline-block;
+}
+
+.checkbox_container {
+  display: block;
+}
+
+input[type=checkbox] {
+  display: inline-block;
+}
+
 ul {
   border-bottom: 1px solid black;
   li:last-child {
     margin-bottom: 1em;
   }
+}
+
+a {
+  color: #0023E8;
 }

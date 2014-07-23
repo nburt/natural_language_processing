@@ -46,8 +46,7 @@ describe TextFormatter do
           :sentiment_type => "negative",
           :sentiment_score => "-0.364699",
           :count => 1,
-          :text => "Nathanael Burt",
-          :disambiguated => nil
+          :text => "Nathanael Burt"
         },
         {
           :type => "City",
@@ -72,8 +71,7 @@ describe TextFormatter do
           :sentiment_type => "neutral",
           :sentiment_score => nil,
           :count => 1,
-          :text => "CA",
-          :disambiguated => nil
+          :text => "CA"
         }
       ]
     }

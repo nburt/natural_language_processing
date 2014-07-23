@@ -2,17 +2,17 @@ require './lib/assets/alchemyapi'
 
 class TextProcessor
 
-  def self.analyze(analysis_type, file)
+  def self.analyze(analysis_type, file, options = {})
     if analysis_type.to_i == 1
-      entity_request(file)
+      entity_request(file, options)
     end
   end
 
   private
 
-  def self.entity_request(file)
+  def self.entity_request(file, options)
     alchemy_api = AlchemyAPI.new
-    alchemy_api.entities('text', file, {sentiment: 1, showSourceText: 1})
+    alchemy_api.entities('text', file, options)
   end
 
 end

@@ -13,3 +13,9 @@ RSpec.configure do |config|
   config.use_transactional_fixtures = true
   config.infer_spec_type_from_file_location!
 end
+
+VCR.configure do |c|
+  c.cassette_library_dir = 'spec/fixtures/vcr_cassettes'
+  c.hook_into :webmock
+  c.filter_sensitive_data('<ALCHEMY_API_KEY>') { ENV['ALCHEMY_API_KEY'] }
+end
