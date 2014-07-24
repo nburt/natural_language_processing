@@ -1,49 +1,16 @@
 <%= link_to "Make another request", root_path %>
 <%= link_to "Download as CSV", "#{query_path(@query)}.csv" %>
 
-<h3>Source Text</h3>
-<p><%= @response["source_text"] %></p>
-
-<h3>Entities</h3>
+<h3>Results</h3>
 <table>
   <th>Text</th>
-  <th>Type</th>
   <th>Count</th>
   <th>Relevance</th>
-  <th>Sentiment Type</th>
-  <th>Sentiment Score</th>
-  <th>Disambiguation Data</th>
-  <th>Quotations</th>
-  <% @response["entities"].each do |entity| %>
+  <% @response.each do |entity| %>
     <tr>
       <td><%= entity["text"] %></td>
-      <td><%= entity["type"] %></td>
       <td><%= entity["count"] %></td>
       <td><%= entity["relevance"] %></td>
-      <% if entity["sentiment_type"] || entity["sentiment_score"] %>
-        <td><%= entity["sentiment_type"] %></td>
-        <td><%= entity["sentiment_score"] %></td>
-      <% else %>
-        <td></td>
-        <td></td>
-      <% end %>
-      <td>
-        <% if entity["disambiguated"] %>
-          <ul>
-            <%= render partial: "disambiguation", locals: {entity_dis: entity["disambiguated"]} %>
-          </ul>
-        <% end %>
-      </td>
-      <td>
-        <% if entity["quotations"] %>
-          <ul>
-            <%= render partial: "quotation", collection: entity["quotations"] %>
-          </ul>
-        <% end %>
-      </td>
     </tr>
-
-
-    </ul>
   <% end %>
 </table>
