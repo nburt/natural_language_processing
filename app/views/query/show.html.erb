@@ -1,4 +1,5 @@
 <%= link_to "Make another request", root_path %>
+<%= link_to "Download as CSV", "#{query_path(@query)}.csv" %>
 
 <h3>Source Text</h3>
 <p><%= @response["source_text"] %></p>

@@ -67,4 +67,17 @@ feature 'visiting the homepage' do
       expect(page).to_not have_content 'http://dbpedia.org/resource/Irvine,_California'
     end
   end
+
+  it 'allows you to download a csv of the data' do
+    VCR.use_cassette('/features/csv') do
+      visit '/'
+      select 'Entity Analysis'
+      attach_file('alchemy_api[file]', './spec/support/test_3.txt')
+      click_button 'Upload File'
+
+      click_link 'Download as CSV'
+      query = Query.last
+      expect(page.current_path).to eq "/query/#{query.id}.csv"
+    end
+  end
 end
