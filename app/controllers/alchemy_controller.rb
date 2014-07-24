@@ -1,6 +1,6 @@
 class AlchemyController < ApplicationController
 
-  def result
+  def query
     options_hash = create_options_hash(params[:alchemy_api])
     analysis_type = params[:alchemy_api][:entity_analysis]
     file = params[:alchemy_api][:file].read

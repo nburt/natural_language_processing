@@ -11,7 +11,7 @@
   <li>Max Retrieve: The maximum number of terms you would like to be extracted from the text. Default is 50.</li>
 </ul>
 
-<%= form_for :alchemy_api, url: :api_new_alchemy_path do |f| %>
+<%= form_for :alchemy_api, url: :api_new_alchemy do |f| %>
   <%= f.label :select_the_analysis_type %>
   <%= f.select :entity_analysis, [["Entity Analysis", 1]] %>
   <div class="checkbox_container">
