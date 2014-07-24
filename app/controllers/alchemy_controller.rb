@@ -1,12 +1,14 @@
 class AlchemyController < ApplicationController
 
-  def query
+  def create
     options_hash = create_options_hash(params[:alchemy_api])
     analysis_type = params[:alchemy_api][:entity_analysis]
     file = params[:alchemy_api][:file].read
+    filename = params[:alchemy_api][:file].original_filename
     analysis = TextProcessor.analyze(analysis_type, file, options_hash)
-    @response = TextFormatter.format(analysis)
-    render 'alchemy/result'
+    response = TextFormatter.format(analysis)
+    query = Query.create!(response: [response.to_json], filename: filename)
+    redirect_to query_path(query)
   end
 
   private

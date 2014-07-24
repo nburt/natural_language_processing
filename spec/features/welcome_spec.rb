@@ -11,6 +11,8 @@ feature 'visiting the homepage' do
       check 'alchemy_api[sentiment]'
       attach_file('alchemy_api[file]', './spec/support/test.txt')
       click_button 'Upload File'
+      query = Query.last
+      expect(page.current_path).to eq "/query/#{query.id}"
       expect(page).to have_content 'Source Text'
       expect(page).to have_content "Hello, my name is Nathanael Burt. I'm from Irvine, CA"
       expect(page).to have_content '1'
