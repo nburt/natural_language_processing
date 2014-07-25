@@ -3,7 +3,7 @@ class QueryController < ApplicationController
 
   def show
     @query = Query.find(params[:id])
-    @response = JSON.parse(@query.response.first)
+    @response = @query.response
 
     respond_to do |format|
       format.csv do

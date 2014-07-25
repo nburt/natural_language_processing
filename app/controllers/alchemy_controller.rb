@@ -6,7 +6,7 @@ class AlchemyController < ApplicationController
     filename = params[:alchemy_api][:file].original_filename
     analysis = TextProcessor.analyze(file, options_hash)
     response = TextFormatter.format(analysis)
-    query = Query.create!(response: [response.to_json], filename: filename)
+    query = Query.create!(response: response, filename: filename)
     redirect_to query_path(query)
   end
 
