@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 describe TextFormatter do
-  it 'can format an alchemy response into an array of hashes' do
+  it 'returns an array of hashes, if two keywords are the same, it returns the one with the highest relevance' do
     entities = {
       "status" => "OK",
       "usage" =>
@@ -22,6 +22,12 @@ describe TextFormatter do
           "text" => "Irvine",
         },
         {
+          "type" => "City",
+          "relevance" => "0.324763",
+          "count" => "1",
+          "text" => "washington",
+        },
+        {
           "type" => "StateOrCounty",
           "relevance" => "0.293316",
           "count" => "1",
@@ -39,6 +45,10 @@ describe TextFormatter do
         {
           "text" => "Nathanael Burt",
           "relevance" => "0.948501"
+        },
+        {
+          "text" => "Washington",
+          "relevance" => "0.224763"
         },
         {
           "text" => "Irvine",
@@ -61,11 +71,6 @@ describe TextFormatter do
         relevance: "0.969646"
       },
       {
-        text: "Nathanael Burt",
-        count: nil,
-        relevance: "0.948501"
-      },
-      {
         text: "Irvine",
         count: nil,
         relevance: "0.618389"
@@ -76,14 +81,9 @@ describe TextFormatter do
         relevance: "0.432386"
       },
       {
-        text: "Irvine",
+        text: "washington",
         count: 1,
-        relevance: "0.369666"
-      },
-      {
-        text: "CA",
-        count: 1,
-        relevance: "0.293316"
+        relevance: "0.324763"
       }
     ]
 
