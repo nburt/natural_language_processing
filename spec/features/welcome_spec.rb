@@ -22,7 +22,7 @@ feature 'visiting the homepage' do
     end
   end
 
-  it 'allows you to configure the maxRetrieve, disambiguate, linkedData, coreference, and quotations' do
+  it 'allows you to configure the maxRetrieve' do
     VCR.use_cassette('/features/configuration') do
       visit '/'
       fill_in 'alchemy_api[max_retrieve]', with: '2'
