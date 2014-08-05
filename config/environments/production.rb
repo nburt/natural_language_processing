@@ -1,4 +1,10 @@
 Rails.application.configure do
+
+  # Web Server
+  # ec2-54-183-134-46.us-west-1.compute.amazonaws.com
+
+
+
   # Settings specified here will take precedence over those in config/application.rb.
 
   # Code is not reloaded between requests.
