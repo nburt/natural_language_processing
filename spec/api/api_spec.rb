@@ -7,7 +7,6 @@ describe "posting NLP queries" do
         query_count = Query.count
 
         body = {
-          filename: "test.txt",
           source_text: "Hello, my name is Nathanael Burt. I'm from Irvine, CA."
         }.to_json
 
@@ -44,7 +43,6 @@ describe "posting NLP queries" do
     it 'allows you to specify the maxRetrieve' do
       VCR.use_cassette '/api/query_with_max_retrieve' do
         body = {
-          filename: "test.txt",
           source_text: "Hello, my name is Nathanael Burt. I'm from Irvine, CA.",
           max_retrieve: "2"
         }.to_json

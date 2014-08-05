@@ -14,7 +14,7 @@ class QueryController < ApplicationController
             csv << [term['text'], term['count'], term['relevance']]
           end
         end
-        send_data data, filename: "#{@query.filename}_glossary.csv"
+        send_data data, filename: "#{@query.id}_glossary.csv"
       end
 
       format.html
