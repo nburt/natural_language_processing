@@ -6,11 +6,15 @@
   <th>Text</th>
   <th>Count</th>
   <th>Relevance</th>
-  <% @response.each do |entity| %>
-    <tr>
-      <td><%= entity["text"] %></td>
-      <td><%= entity["count"] %></td>
-      <td><%= entity["relevance"] %></td>
-    </tr>
+  <% if @response.class == Array %>
+    <% @response.each do |entity| %>
+      <tr>
+        <td><%= entity["text"] %></td>
+        <td><%= entity["count"] %></td>
+        <td><%= entity["relevance"] %></td>
+      </tr>
+    <% end %>
+  <% else %>
+    <p class="failure"><%= @response["error"] %></p>
   <% end %>
 </table>

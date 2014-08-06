@@ -22,7 +22,7 @@ feature 'visiting the homepage' do
     end
   end
 
-  it 'allows you to configure the maxRetrieve' do
+  scenario 'allows you to configure the maxRetrieve' do
     VCR.use_cassette('/features/configuration') do
       visit '/'
       fill_in 'alchemy_api[max_retrieve]', with: '2'
@@ -34,7 +34,7 @@ feature 'visiting the homepage' do
     end
   end
 
-  it 'allows you to download a csv of the data' do
+  scenario 'allows you to download a csv of the data' do
     VCR.use_cassette('/features/csv') do
       visit '/'
       attach_file('alchemy_api[file]', './spec/support/test_3.txt')
@@ -45,4 +45,23 @@ feature 'visiting the homepage' do
       expect(page.current_path).to eq "/query/#{query.id}.csv"
     end
   end
+
+  scenario 'handles the upload of an empty file' do
+    VCR.use_cassette('/features/empty_file_upload') do
+      visit '/'
+      click_button 'Upload File'
+
+      expect(page).to have_content 'File cannot be empty'
+    end
+  end
+
+  scenario 'handles files that are too big' do
+    VCR.use_cassette('/features/filesize_error') do
+      visit '/'
+      attach_file('alchemy_api[file]', './spec/support/too_big.txt')
+      click_button 'Upload File'
+      expect(page).to have_content 'Query could not be saved, file is either blank or larger than 50kb'
+    end
+  end
+
 end

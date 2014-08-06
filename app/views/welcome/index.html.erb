@@ -5,6 +5,8 @@
   <li>Max Retrieve: The maximum number of terms you would like to be extracted from the text. Default is 50.</li>
 </ul>
 
+<p class="failure"><%= flash[:empty_file] %></p>
+
 <%= form_for :alchemy_api, url: :api_new_alchemy do |f| %>
   <%= f.label :max_retrieve %>
   <%= f.number_field :max_retrieve, value: "50" %>

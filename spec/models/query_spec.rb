@@ -13,4 +13,13 @@ describe Query do
 
   end
 
+  describe "validations" do
+    it "validates presence of a response" do
+      query = Query.create!(response: [{"text" => "Nathanael Burt","count" => 1,"relevance" => "0.969646"}])
+      expect(query).to be_valid
+      query.response = nil
+      expect(query).to_not be_valid
+    end
+  end
+
 end

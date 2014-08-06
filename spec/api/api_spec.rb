@@ -71,5 +71,29 @@ describe "posting NLP queries" do
       end
     end
 
+    it 'handles empty files does not save' do
+      VCR.use_cassette('/api/file_error') do
+        post '/api/terms', nil, {'Accept' => 'application/json'}
+
+        expect(response.status).to eq 400
+        expect(response.body).to eq(
+                                   {
+                                     status: 400,
+                                     error: 'File cannot be empty'
+                                   }.to_json
+                                 )
+
+        post '/api/terms', '', {'Accept' => 'application/json'}
+
+        expect(response.status).to eq 400
+        expect(response.body).to eq(
+                                   {
+                                     status: 400,
+                                     error: 'File cannot be empty'
+                                   }.to_json
+                                 )
+      end
+    end
+
   end
 end
