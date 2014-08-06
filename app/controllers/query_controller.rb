@@ -7,14 +7,7 @@ class QueryController < ApplicationController
 
     respond_to do |format|
       format.csv do
-        headers = ["Text", "Count", "Relevance"]
-        data = CSV.generate do |csv|
-          csv << headers
-          @response.each do |term|
-            csv << [term['text'], term['count'], term['relevance']]
-          end
-        end
-        send_data data, filename: "#{@query.id}_glossary.csv"
+        send_data FormatCsv.call(@response), filename: "#{@query.id}_glossary.csv"
       end
 
       format.html
