@@ -60,7 +60,7 @@ feature 'visiting the homepage' do
       visit '/'
       attach_file('alchemy_api[file]', './spec/support/too_big.txt')
       click_button 'Upload File'
-      expect(page).to have_content 'Query could not be saved, file is either blank or larger than 50kb'
+      expect(page).to have_content 'Query could not be processed, file is either blank or larger than 50kb'
     end
   end
 

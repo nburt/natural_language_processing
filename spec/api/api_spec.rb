@@ -72,7 +72,7 @@ describe "posting NLP queries" do
     end
 
     it 'handles empty files does not save' do
-      VCR.use_cassette('/api/file_error') do
+      VCR.use_cassette '/api/file_error' do
         post '/api/terms', nil, {'Accept' => 'application/json'}
 
         expect(response.status).to eq 400
@@ -90,6 +90,24 @@ describe "posting NLP queries" do
                                    {
                                      status: 400,
                                      error: 'File cannot be empty'
+                                   }.to_json
+                                 )
+      end
+    end
+
+    it 'returns an error message if the file is too big' do
+      VCR.use_cassette '/api/filesize_error' do
+        body = {
+          source_text: File.read('./spec/support/too_big.txt')
+        }.to_json
+
+        post '/api/terms', body, {'Accept' => 'application/json'}
+
+        expect(response.status).to eq 400
+        expect(response.body).to eq(
+                                   {
+                                     status: 400,
+                                     error: 'Query could not be processed, file is either blank or larger than 50kb'
                                    }.to_json
                                  )
       end

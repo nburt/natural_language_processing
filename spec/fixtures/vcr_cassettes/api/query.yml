@@ -23,7 +23,7 @@ http_interactions:
       Server:
       - nginx
       Date:
-      - Mon, 28 Jul 2014 21:44:38 GMT
+      - Thu, 07 Aug 2014 21:26:04 GMT
       Content-Type:
       - application/json
       Content-Length:
@@ -49,7 +49,7 @@ http_interactions:
         \"0.293316\",\r\n            \"count\": \"1\",\r\n            \"text\": \"CA\"\r\n
         \       }\r\n    ]\r\n}\r\n"
     http_version: 
-  recorded_at: Mon, 28 Jul 2014 21:44:36 GMT
+  recorded_at: Thu, 07 Aug 2014 21:26:03 GMT
 - request:
     method: post
     uri: http://access.alchemyapi.com/calls/text/TextGetRankedKeywords
@@ -73,7 +73,7 @@ http_interactions:
       Server:
       - nginx
       Date:
-      - Mon, 28 Jul 2014 21:44:38 GMT
+      - Thu, 07 Aug 2014 21:26:04 GMT
       Content-Type:
       - application/json
       Content-Length:
@@ -96,5 +96,5 @@ http_interactions:
         \           \"relevance\": \"0.618389\"\r\n        },\r\n        {\r\n            \"text\":
         \"CA\",\r\n            \"relevance\": \"0.432386\"\r\n        }\r\n    ]\r\n}\r\n"
     http_version: 
-  recorded_at: Mon, 28 Jul 2014 21:44:37 GMT
+  recorded_at: Thu, 07 Aug 2014 21:26:04 GMT
 recorded_with: VCR 2.9.2

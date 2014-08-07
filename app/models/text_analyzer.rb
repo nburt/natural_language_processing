@@ -31,7 +31,7 @@ class TextAnalyzer
   def self.query_error
     response = {
       status: 400,
-      error: "Query could not be saved, file is either blank or larger than 50kb"
+      error: "Query could not be processed, file is either blank or larger than 50kb"
     }
     Query.create!(response: response)
   end

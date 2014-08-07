@@ -9,6 +9,8 @@ module Api
         query, status = TextAnalyzer.query(file, options_hash)
         if status == 200
           json = json_success(query)
+        elsif status == 400
+          json = query.response
         end
       rescue JSON::ParserError
         json = json_parser_error
